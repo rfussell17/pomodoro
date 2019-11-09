@@ -1,0 +1,92 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-shadow: 5px 5px 15px #1a1919;
+  background-image: url(images/janko-ferlic-specialdaddy-sfL_QOnmy00-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.body2 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-shadow: 5px 5px 15px #1a1919;
+  background-image: url(images/estherh.jpg);
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+#container {
+
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  height: 30px;
+  margin-top: -100px; 
+  margin-left: -200px;
+  padding-top: 20%;
+  padding-bottom: 1.1%;
+  background: whitesmoke;
+}
+
+#radio {
+  position: absolute;
+  text-align: center;
+  font-size: 30px;
+  top: 25px;
+  left: 35px;
+}
+
+#timer {
+  background-color: gray;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 79px;
+  position: absolute;
+  top: 150px;
+}
+
+#start{
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+}
+
+#stop{
+  background-color: #f44336;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+}
+
+#reset{
+  background-color: #008CBA;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+}
+
+#start:hover{
+  box-shadow: 0 10px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.5s;
+}
+
+#stop:hover{
+  box-shadow: 0 10px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.5s;
+}
+
+#reset:hover{
+  box-shadow: 0 10px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.5s;
+}
+
+#buttons {
+  position: relative;
+}
