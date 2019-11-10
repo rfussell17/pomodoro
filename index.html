@@ -10,21 +10,37 @@
 <body>
 
 <div id="container">
-  <div class="radio">
+
+  <div id="radio">
     <form>
       <label for= "work">Work: </label>
-      <input type="radio" name= "work" value="work" onclick="radioClick();">
+      <input type="radio" 
+             id="workId"
+             name= "rad1" 
+             value="work" 
+             onclick="radio1();">
+
       <label for= "rest">Rest: </label>
-      <input type="radio" name= "rest" value="rest" onclick="radioClick();">
+      <input type="radio"
+             id="restId"
+             name= "rad1"
+             value="rest" 
+             onclick="radio1();">
     </form>
   </div>
 
-  <div id="timer">25 : 00</div>
+  <div id="timer">
+      <span id="minutes">25</span>
+      <span id="colon">:</span>
+      <span id="seconds">00</span>
+    </div>
 
-<div class="buttons">
-  <button id="start">Start</button>
+
+<div class="buttons"></div>
+  <button onClick="fn1()" id="start">Start</button>
   <button id="reset">Reset</button>
 </div>
+
 </div>
 <script src="script.js"></script>
 </body>

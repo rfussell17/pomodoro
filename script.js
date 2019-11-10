@@ -1,10 +1,19 @@
-var start = Document.getElementById("start");
-var timer = Document.getElementById("timer")
-let min = 25;
-let secs = 60;
+let startButton = document.getElementById("start");
+let resetButton = document.getElementById("reset");
 
-start.addEventListener("click", function(){
-  timer = min + secs;
-  setInterval(timer, 1000);
-  timer --;
-}); 
+
+startButton.addEventListener("click", function(){
+alert("Clicked!");
+});  
+
+resetButton.addEventListener("click", function(){
+  alert("Clicked!");
+  });
+
+function radio1(){
+  var workId = document.getElementById("workId");
+  var restId = document.getElementById("restId");
+
+  workId.checked == true? alert(workId.value) :
+   restId.checked == true? alert(restId.value) : alert(workId.value) ;
+}
