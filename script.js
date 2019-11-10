@@ -1,7 +1,10 @@
-let button = Document.getElementById("start");
-var body = Document.getElementById("booty");
+var start = Document.getElementById("start");
+var timer = Document.getElementById("timer")
+let min = 25;
+let secs = 60;
 
-start.addEventListener("click", function() {
-  body.style.color = "red";
-});
-
+start.addEventListener("click", function(){
+  timer = min + secs;
+  setInterval(timer, 1000);
+  timer --;
+}); 

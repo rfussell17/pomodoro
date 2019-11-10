@@ -9,23 +9,23 @@
 </head>
 <body>
 
-  
-  <div id="container">
-    <form id="radio">
-    <label for= "work">Work: </label>
-    <input type="radio" name= "work" value="work">
-    <label for= "rest">Rest: </label>
-    <input type="radio" name= "rest" value="rest">
-  </form>
-    <div id="timer">00 : 00</div>
-    <div id="buttons">
-    <button id="start">Start</button>
-    <button id="stop">Stop</button>
-    <button id="reset">Reset</button>
-  </div>
+<div id="container">
+  <div class="radio">
+    <form>
+      <label for= "work">Work: </label>
+      <input type="radio" name= "work" value="work" onclick="radioClick();">
+      <label for= "rest">Rest: </label>
+      <input type="radio" name= "rest" value="rest" onclick="radioClick();">
+    </form>
   </div>
 
+  <div id="timer">25 : 00</div>
 
+<div class="buttons">
+  <button id="start">Start</button>
+  <button id="reset">Reset</button>
+</div>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
