@@ -21,8 +21,10 @@ body {
   margin: 50px;
 }
 
-.timer {
-  height: 70px;
+#timer {
+  height: 0px;
+  margin-bottom: 65px;
+  margin-top: 20px;
   color: whitesmoke;
   text-align: center;
   font-size: 90px;

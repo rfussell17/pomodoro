@@ -1,5 +1,4 @@
 //timer id
-
 const timer = document.getElementById("timer");
 
 //button variables
@@ -10,27 +9,29 @@ const resetButton = document.getElementById("reset");
 
 //radio variables
 
-const workMode = document.getElementById("workId");
-const restMode = document.getElementById("restId");
+let workMode = document.getElementById("workId");
+let restMode = document.getElementById("restId");
 
 //button event functions
 
 startButton.addEventListener('click', () => {
-  console.log(3);
+  console.log("start");
 })
 
 stopButton.addEventListener('click', () => {
-  console.log(4);
+  console.log("Stop");
 })
 
 resetButton.addEventListener('click', () => {
-  console.log(5);
+  console.log("reset");
 })
 
+//radio button event functions - toggles between 25 and 5 min
+
 workMode.addEventListener('click', () => {
-  console.log(1);
+  document.getElementById("timer").innerHTML = "25:00";
 })
 
 restMode.addEventListener('click', () => {
-  
-})
+  document.getElementById("timer").innerHTML = "5:00";
+});
