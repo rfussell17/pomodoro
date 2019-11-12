@@ -1,19 +1,36 @@
-let startButton = document.getElementById("start");
-let resetButton = document.getElementById("reset");
+//timer id
 
+const timer = document.getElementById("timer");
 
-startButton.addEventListener("click", function(){
-alert("Clicked!");
-});  
+//button variables
 
-resetButton.addEventListener("click", function(){
-  alert("Clicked!");
-  });
+const startButton = document.getElementById("start");
+const stopButton = document.getElementById("stop");
+const resetButton = document.getElementById("reset");
 
-function radio1(){
-  var workId = document.getElementById("workId");
-  var restId = document.getElementById("restId");
+//radio variables
 
-  workId.checked == true? alert(workId.value) :
-   restId.checked == true? alert(restId.value) : alert(workId.value) ;
-}
+const workMode = document.getElementById("workId");
+const restMode = document.getElementById("restId");
+
+//button event functions
+
+startButton.addEventListener('click', () => {
+  console.log(3);
+})
+
+stopButton.addEventListener('click', () => {
+  console.log(4);
+})
+
+resetButton.addEventListener('click', () => {
+  console.log(5);
+})
+
+workMode.addEventListener('click', () => {
+  console.log(1);
+})
+
+restMode.addEventListener('click', () => {
+  
+})
