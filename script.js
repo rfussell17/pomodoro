@@ -1,37 +1,79 @@
-//timer id
-const timer = document.getElementById("timer");
+//function for pomodoro timer
 
-//button variables
+function pomodoro(){
 
-const startButton = document.getElementById("start");
-const stopButton = document.getElementById("stop");
-const resetButton = document.getElementById("reset");
+  //time variables needed for timer, buttons and radio toggle
 
-//radio variables
+  const time = document.getElementById("timer");
+  let minutes = 24;
+  let seconds = 60;
+  const startButton = document.getElementById("start");
+  const stopButton = document.getElementById("stop");
+  const resetButton = document.getElementById("reset");
+  const workMode = document.getElementById("workId");
+  const restMode = document.getElementById("restId");
 
-let workMode = document.getElementById("workId");
-let restMode = document.getElementById("restId");
+  //displays digits used in countDown function and displays in innerHTML 
 
-//button event functions
+  function timerDisplay(){
+    let refactoredMinutes;
+    let refactoredSeconds;
 
-startButton.addEventListener('click', () => {
-  console.log("start");
-})
+    refactoredMinutes = minutes < 10 ? refactoredMinutes = `0${minutes}` : refactoredMinutes = `${minutes}`;
+    refactoredSeconds = seconds < 10 ? refactoredSeconds = `0${seconds}` : refactoredSeconds = `${seconds}`;
 
-stopButton.addEventListener('click', () => {
-  console.log("Stop");
-})
+    time.innerHTML = `${refactoredMinutes}:${refactoredSeconds}`;
+  };
 
-resetButton.addEventListener('click', () => {
-  console.log("reset");
-})
+  //function to calculate + display digits counting down
 
-//radio button event functions - toggles between 25 and 5 min
+  function countDown(){
+    seconds --;
+    if(seconds == 0){
+      seconds = 59;
+      minutes--;
+    } 
+  timerDisplay();
+  };
 
-workMode.addEventListener('click', () => {
-  document.getElementById("timer").innerHTML = "25:00";
-})
+  //button event functions
 
-restMode.addEventListener('click', () => {
-  document.getElementById("timer").innerHTML = "5:00";
-});
+  startButton.addEventListener('click', () => {
+    timer = setInterval(countDown, 1000);
+    console.log("Start")
+  });
+
+  stopButton.addEventListener('click', () => {
+    console.log("Stop");
+    timer = clearInterval(timer);
+  });
+
+  resetButton.addEventListener('click', () => {
+    console.log("Reset");
+    refactoredMinutes = 25;
+    refactoredSeconds = 0;
+    time.innerHTML = time.innerHTML = `${refactoredMinutes}:0${refactoredSeconds}`;
+    timer = clearInterval(timer);
+  });
+
+  //radio buttons for study and rest timer toggle 
+
+  workMode.addEventListener('click', () => {
+    console.log("Work mode")
+  }); 
+
+  restMode.addEventListener('click', () => {
+    console.log("Rest mode")
+    time
+  }); 
+
+  //placeholder for timer sound when countdown reaches 00:00
+
+  function timerEnd(){
+    if (minutes === 0 && seconds ===0){
+      alert("timer sound");
+    }
+  }
+}
+
+pomodoro();
