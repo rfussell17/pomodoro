@@ -34,6 +34,9 @@ function pomodoro(){
       minutes--;
     } 
   timerDisplay();
+  if(seconds == 0 && minutes == 0){
+    playSound();
+    }
   };
 
   //button event functions
@@ -50,10 +53,10 @@ function pomodoro(){
 
   resetButton.addEventListener('click', () => {
     console.log("Reset");
+    timer = clearInterval(timer);
     refactoredMinutes = 25;
     refactoredSeconds = 0;
-    time.innerHTML = time.innerHTML = `${refactoredMinutes}:0${refactoredSeconds}`;
-    timer = clearInterval(timer);
+    time.innerHTML = `${refactoredMinutes}:0${refactoredSeconds}`;
   });
 
   //radio buttons for study and rest timer toggle 
@@ -69,11 +72,9 @@ function pomodoro(){
 
   //placeholder for timer sound when countdown reaches 00:00
 
-  function timerEnd(){
-    if (minutes === 0 && seconds ===0){
+  function playSound(){
       alert("timer sound");
-    }
+     }
   }
-}
 
 pomodoro();
