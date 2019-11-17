@@ -1,45 +1,63 @@
-//function for pomodoro timer
+
 
 function pomodoro(){
 
-  //time variables needed for timer, buttons and radio toggle
-
   const time = document.getElementById("timer");
-  let minutes = 24;
-  let seconds = 60;
+
+  let totalSeconds = 1500;
+  let restSeconds = 300;
   const startButton = document.getElementById("start");
   const stopButton = document.getElementById("stop");
   const resetButton = document.getElementById("reset");
   const workMode = document.getElementById("workId");
   const restMode = document.getElementById("restId");
-
-  //displays digits used in countDown function and displays in innerHTML 
-
+  
   function timerDisplay(){
     let refactoredMinutes;
     let refactoredSeconds;
 
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds - minutes * 60;
+
+    restMinutes = minutes / 5;
+    
     refactoredMinutes = minutes < 10 ? refactoredMinutes = `0${minutes}` : refactoredMinutes = `${minutes}`;
     refactoredSeconds = seconds < 10 ? refactoredSeconds = `0${seconds}` : refactoredSeconds = `${seconds}`;
 
-    time.innerHTML = `${refactoredMinutes}:${refactoredSeconds}`;
-  };
-
-  //function to calculate + display digits counting down
-
-  function countDown(){
-    seconds --;
-    if(seconds == 0){
-      seconds = 59;
-      minutes--;
-    } 
-  timerDisplay();
-  if(seconds == 0 && minutes == 0){
-    playSound();
+    workMode.addEventListener('click', () => {
+      console.log("Work mode")
+      totalSeconds = 1500;
+    }); 
+  
+    restMode.addEventListener('click', () => {
+      console.log("Rest mode")
+      totalSeconds = restSeconds;
+    }); 
+  
+    if(workMode){
+      time.innerHTML = `${minutes}:${seconds}`;
+    } else if (restMode){
+      time.innerHTML = `${minutes}:${seconds}`;
     }
   };
 
-  //button event functions
+  function countDown(){
+    totalSeconds --;
+    timerDisplay();
+      if(totalSeconds == 0){
+        playSound();
+      }
+    };
+
+  workMode.addEventListener('click', () => {
+    console.log("Work mode")
+    totalSeconds = 1500;
+  }); 
+
+  restMode.addEventListener('click', () => {
+    console.log("Rest mode")
+    totalSeconds = restSeconds;
+  }); 
 
   startButton.addEventListener('click', () => {
     timer = setInterval(countDown, 1000);
@@ -54,23 +72,14 @@ function pomodoro(){
   resetButton.addEventListener('click', () => {
     console.log("Reset");
     timer = clearInterval(timer);
-    refactoredMinutes = 25;
-    refactoredSeconds = 0;
-    time.innerHTML = `${refactoredMinutes}:0${refactoredSeconds}`;
+    if(workMode.checked){
+      totalSeconds = 1500;
+      time.innerHTML = `${totalSeconds}`;
+    } else if(restMode.checked){
+      totalSeconds = 300;
+      time.innerHTML = `${totalSeconds}`;
+    }
   });
-
-  //radio buttons for study and rest timer toggle 
-
-  workMode.addEventListener('click', () => {
-    console.log("Work mode")
-  }); 
-
-  restMode.addEventListener('click', () => {
-    console.log("Rest mode")
-    time
-  }); 
-
-  //placeholder for timer sound when countdown reaches 00:00
 
   function playSound(){
       alert("timer sound");
