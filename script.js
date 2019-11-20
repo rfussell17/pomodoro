@@ -4,7 +4,6 @@ function pomodoro(){
   const time = document.getElementById("timer");
   let workSeconds = 1500;
   let totalSeconds = 1500;
-  let remSeconds = totalSeconds % 60;
   let restSeconds = 300;
   const startButton = document.getElementById("start");
   const stopButton = document.getElementById("stop");
@@ -27,7 +26,8 @@ function pomodoro(){
     workMode.addEventListener('click', () => {
       console.log("Work mode")
       if(workMode.checked){
-        time.innerHTML = "25:00";
+        clearInterval(timer);
+       // time.innerHTML = "25:00";
         totalSeconds = workSeconds;
       }
     }); 
@@ -35,7 +35,8 @@ function pomodoro(){
     restMode.addEventListener('click', () => {
       console.log("Rest mode")
       if(restMode.checked){
-      time.innerHTML = "05:00";
+      clearInterval(timer);
+     // time.innerHTML = "05:00";
       totalSeconds = restSeconds;
       }
     }); 
@@ -66,33 +67,21 @@ function pomodoro(){
 
   startButton.addEventListener('click', () => {
     clearInterval(timer);
-     if (workMode.checked){
+     if (workMode.checked)
       totalSeconds = workSeconds;
-    }
-    
-     if(restMode.checked){
+     if(restMode.checked)
        totalSeconds = restSeconds;
-      }
       clearInterval(timer)
-      timer = setInterval(countDown, 1000);
-
-     if(stopButton.clicked){
-       totalSeconds = remSeconds;
-     } 
+      timer = setInterval(countDown, 1000); 
   });
-
-  // stop button functioning correctly
 
   stopButton.addEventListener('click', () => {
     clearInterval(timer);
-    seconds = remSeconds;
   });
-
-  //reset functioning correctly
 
   resetButton.addEventListener('click', () => {
     if(workMode.checked){
-      totalSeconds = 1500;
+      totalSeconds = workSeconds;
       time.innerHTML = "25:00";
     } else if(restMode.checked){
       totalSeconds = restSeconds;
