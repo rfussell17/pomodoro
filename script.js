@@ -1,28 +1,16 @@
 
-//all code is wrapped in pomodoro and then called at the bottom
-
 function pomodoro(){
 
-  //variables to grab seconds, buttons, and work modes
-
   const time = document.getElementById("timer");
+  let workSeconds = 1500;
   let totalSeconds = 1500;
+  let remSeconds = totalSeconds % 60;
   let restSeconds = 300;
   const startButton = document.getElementById("start");
   const stopButton = document.getElementById("stop");
   const resetButton = document.getElementById("reset");
   const workMode = document.getElementById("workId");
   const restMode = document.getElementById("restId");
-
-  if(workMode.checked){
-    time.innerHTML = "25:00";
-    }
-  if (restMode.checked){
-      time.innerHTML = "05:00";
-      totalSeconds = 300;
-    }
-  
-  //timer function calculates and refactors seconds into seconds and minutes
 
   function timerDisplay(totalSeconds){
     let refactoredMinutes;
@@ -31,27 +19,27 @@ function pomodoro(){
     let seconds = totalSeconds - minutes * 60;
     refactoredMinutes = minutes < 10 ? refactoredMinutes = `0${minutes}` : refactoredMinutes = `${minutes}`;
     refactoredSeconds = seconds < 10 ? refactoredSeconds = `0${seconds}` : refactoredSeconds = `${seconds}`;
+
     time.innerHTML = `${refactoredMinutes}:${refactoredSeconds}`;    
 
     //radio buttons to toggle 25 and 5 min periods
 
     workMode.addEventListener('click', () => {
-    //  console.log("Work mode")
-    //  if(workMode.checked){
+      console.log("Work mode")
+      if(workMode.checked){
         time.innerHTML = "25:00";
-        totalSeconds = 1500;
-
+        totalSeconds = workSeconds;
+      }
     }); 
   
     restMode.addEventListener('click', () => {
-    //  console.log("Rest mode")
-    //  if(restMode.checked){
+      console.log("Rest mode")
+      if(restMode.checked){
       time.innerHTML = "05:00";
-      totalSeconds = 300;
+      totalSeconds = restSeconds;
+      }
     }); 
   };
-
-  //countDown function decrements totalSeconds until 0 and plays timer sound.
 
   function countDown(){
     totalSeconds --;
@@ -71,26 +59,36 @@ function pomodoro(){
     audio.play();
     }
 
-  //start, stop and reset buttons
+  //start button issue one: doesn't switch time back from break mode unless reset is pressed
+
+  // ex. "work setting: start - counts down, click rest setting: switches time from 25 to 5, counts down
+  // click work setting again: stays at 5:00 unless reset is pressed"
 
   startButton.addEventListener('click', () => {
     clearInterval(timer);
-    if (workMode.checked){
-      totalSeconds = totalSeconds;
+     if (workMode.checked){
+      totalSeconds = workSeconds;
     }
-    clearInterval(timer)
-
-    timer = setInterval(countDown, 1000);
-    if(restMode.checked){
+    
+     if(restMode.checked){
        totalSeconds = restSeconds;
       }
-      clearInterval(timer);
-    timer = setInterval(countDown, 1000);
+      clearInterval(timer)
+      timer = setInterval(countDown, 1000);
+
+     if(stopButton.clicked){
+       totalSeconds = remSeconds;
+     } 
   });
+
+  // stop button functioning correctly
 
   stopButton.addEventListener('click', () => {
     clearInterval(timer);
+    seconds = remSeconds;
   });
+
+  //reset functioning correctly
 
   resetButton.addEventListener('click', () => {
     if(workMode.checked){
