@@ -16,7 +16,6 @@ function pomodoro(){
 // sets timer to 25:00
 
   workMode.addEventListener('click', () => {
-    console.log("Work mode")
     if(workMode.checked){
       clearInterval(timer);
       time.innerHTML = "25:00";
@@ -28,7 +27,6 @@ function pomodoro(){
 //sets timer to 05:00
 
   restMode.addEventListener('click', () => {
-    console.log("Rest mode")
     if(restMode.checked){
     clearInterval(timer);
     time.innerHTML = "05:00";
@@ -84,7 +82,6 @@ function pomodoro(){
 
   function countDown(){
     totalSeconds --;
-    console.log(timer);
     timerDisplay(totalSeconds);
       if(totalSeconds == 0){
         playSound();
