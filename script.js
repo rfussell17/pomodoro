@@ -1,8 +1,6 @@
 
 function pomodoro(){
 
-  //variables for seconds, buttons and time display modes
-
   const time = document.getElementById("timer");
   let workSeconds = 1500;
   let totalSeconds = 1500;
@@ -35,8 +33,6 @@ function pomodoro(){
     }
   }); 
 
-//starts timer
-
   startButton.addEventListener('click', () => {
     clearInterval(timer);
      if (workMode.checked)
@@ -46,8 +42,6 @@ function pomodoro(){
       clearInterval(timer)
       timer = setInterval(countDown, 1000); 
   });
-
-//stops timer
 
   stopButton.addEventListener('click', () => {
     clearInterval(timer);
@@ -89,8 +83,6 @@ function pomodoro(){
         time.innerHTML = "00:00";
       }
     };
-
-//timer sound
 
   function playSound(){
     const audio = new Audio("sounds/shine-ding_GyZLjr4O.mp3");
