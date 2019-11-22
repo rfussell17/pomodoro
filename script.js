@@ -18,7 +18,6 @@ function pomodoro(){
       clearInterval(timer);
       time.innerHTML = "25:00";
       totalSeconds = workSeconds;
-      time.innerHTML = `${refactoredMinutes}:${refactoredSeconds}`;
     }
   }); 
 
@@ -29,7 +28,6 @@ function pomodoro(){
     clearInterval(timer);
     time.innerHTML = "05:00";
     totalSeconds = restSeconds;
-    time.innerHTML = `${refactoredMinutes}:${refactoredSeconds}`;
     }
   }); 
 
@@ -53,7 +51,6 @@ function pomodoro(){
     if(workMode.checked){
       totalSeconds = workSeconds;
       time.innerHTML = "25:00";
-     time.innerHTML = `${refactoredMinutes}:${refactoredSeconds}`;
     } else if(restMode.checked){
       totalSeconds = restSeconds;
       time.innerHTML = "05:00";
