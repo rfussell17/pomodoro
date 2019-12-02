@@ -1,10 +1,11 @@
-
-function pomodoro(){
-
+//IIFE
+(function() {
   const time = document.getElementById("timer");
-  let workSeconds = 1500;
-  let totalSeconds = 1500;
-  let restSeconds = 300;
+  const WORK_SECONDS = 1500;
+  const REST_SECONDS = 300;
+
+  let totalSeconds = WORK_SECONDS;
+
   const startButton = document.getElementById("start");
   const stopButton = document.getElementById("stop");
   const resetButton = document.getElementById("reset");
@@ -16,8 +17,8 @@ function pomodoro(){
   workMode.addEventListener('click', () => {
     if(workMode.checked){
       clearInterval(timer);
-      time.innerHTML = "25:00";
-      totalSeconds = workSeconds;
+      totalSeconds = WORK_SECONDS;
+      timerDisplay(totalSeconds);
     }
   }); 
 
@@ -26,8 +27,8 @@ function pomodoro(){
   restMode.addEventListener('click', () => {
     if(restMode.checked){
     clearInterval(timer);
-    time.innerHTML = "05:00";
-    totalSeconds = restSeconds;
+    totalSeconds = REST_SECONDS;
+    timerDisplay(totalSeconds);
     }
   }); 
 
@@ -49,12 +50,11 @@ function pomodoro(){
 
   resetButton.addEventListener('click', () => {
     if(workMode.checked){
-      totalSeconds = workSeconds;
-      time.innerHTML = "25:00";
+      totalSeconds = WORK_SECONDS;
     } else if(restMode.checked){
-      totalSeconds = restSeconds;
-      time.innerHTML = "05:00";
+      totalSeconds = REST_SECONDS;
       }
+      timerDisplay(totalSeconds);
    });
 
 // displays correctly formatted time
@@ -85,5 +85,6 @@ function pomodoro(){
     const audio = new Audio("sounds/shine-ding_GyZLjr4O.mp3");
     audio.play();
     }
-};
-pomodoro();
+  timerDisplay(totalSeconds);    
+})();
+
