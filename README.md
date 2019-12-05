@@ -1,7 +1,7 @@
  # Pomodoro Timer
 
 ### Follow this Pomodoro Timer during intense study sessions to prevent burnout and maximize your focused effort!  
-<br>
+
 ### Try it out here: [Pomodoro Timer](https://rfussell17.github.io/pomodoro/)
 <br>
  <img src="images/frontend2.png"   title="HTML5 Powered">
