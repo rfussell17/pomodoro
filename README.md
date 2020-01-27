@@ -16,4 +16,4 @@
 
 **Author**
 <br>
-**Robin Fussell** _- Software Developer_ | [LinkedIn]('www.linkedin.com/in/robin-fussell-544983176)
+**Robin Fussell** _- Software Developer_ | [LinkedIn](https://www.linkedin.com/in/robin-fussell17/)
