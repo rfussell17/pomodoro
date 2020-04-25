@@ -8,7 +8,7 @@
 
 <br>
 
-<img src="images/pomoCropped.png" height= 500  title="HTML5 Powered">
+<img src="images/pomo.jpg" height= 500  title="HTML5 Powered">
  
 
 ##  Summary
