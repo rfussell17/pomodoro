@@ -92,6 +92,10 @@ body {
   opacity: 0;
 }
 
+#start:focus {
+	outline-style: none;
+}
+
 #stop:hover {
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
@@ -105,6 +109,10 @@ body {
   opacity: 0;
 }
 
+#stop:focus {
+	outline-style: none;
+}
+
 
 #reset:hover {
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.24),
@@ -114,7 +122,11 @@ body {
     box-shadow: 0 1rem 2rem rgba(black,.2);
 }
 
-#reset::after{
+#reset::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
+}
+
+#reset:focus {
+	outline-style: none;
 }
